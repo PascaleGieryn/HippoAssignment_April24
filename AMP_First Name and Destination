@@ -1,0 +1,20 @@
+%%[
+SET @firstname = Lookup("Hippo Assignment_April2024", "FirstName", "ID", ID)
+]%%
+Hi %%=v(@firstname)=%%
+
+
+%%[
+SET @destination = Lookup("Hippo Assignment_April2024", "Destination", "ID", ID)
+IF @destination =="JHB" THEN 
+SET @TextDes="Thanks for flying with us to Johannesburg, the city of Gold!"
+ELSEIF @destination =="CT" THEN 
+SET @TextDes="Thanks for flying with us to Cape Town which houses one of the 7 World Wonders!" 
+ELSE @destination =="DUR" THEN
+SET @TextDes="Thanks for flying with us to Durban, the city of the Golden Mile!"
+ENDIF
+
+SET @lookuprows = LookupRows("Hippo Assignment_April2024", "ID", ID)
+SET @row = Row(@lookuprows,1)
+]%%
+%%=v(@TextDes)=%%
