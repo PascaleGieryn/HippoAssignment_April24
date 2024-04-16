@@ -1,0 +1,6 @@
+%%[SET @lookuprows = LookupRows("Hippo Assignment_April2024", "ID", ID)
+SET @row = Row(@lookuprows,1)
+]%%
+Voucher Code: %%=Field(@row,'CouponCode')=%%
+
+Expiry Date: %%=FormatDate(DateAdd(Now(),'30','D'),"yyyy/MM/dd", "","en-US")=%%
